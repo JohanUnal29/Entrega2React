@@ -6,6 +6,8 @@
 //Estilos
 import './Home.css'
 //Componentes
+import Carousell from '../subComponents/carousel/Carousel'
+import Banner from '../subComponents/bannerSlideRight/Banner'
 //Core
 
 /*#############################################
@@ -15,44 +17,11 @@ const Home = () => {//Funcion constructora
 
     console.log("Home");
     return(
-        
-        <div>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        <p >
-           Estamos en la Home
-        </p>
-        
-        </div>
-
+      <div>
+        <Carousell/>
+        <Banner/>
+      </div>  
+      
         
     )
 

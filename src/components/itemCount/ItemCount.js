@@ -20,40 +20,39 @@ const ItemCount = (props) => {//Funcion constructora
 
     //Agregar un manejo de Estado
     //useState
-    const [count,setCount] = useState(0)
+    const [count, setCount] = useState(0)
 
     //Funciones de sumar uno con un maximo de sock
+
     const addOne = () => {
-        if(count < props.stock) {
+        if (count < props.stock) {
             setCount(count + 1)
+            props.guardarCantidadAComprar(count)
         }
     }
+
+
+
 
     //Funcion de restar uno al contador seteando un minimo
     const disOne = () => {
-        if(count > 0) {
+        if (count > 0) {
             setCount(count - 1)
+            props.guardarCantidadAComprar(count)
         }
 
     }
 
-    //Funcion agregar X cantidad de productos
-    const onAdd = () => {
-        console.log(count);
-    }
+    return (
 
-
-    return(
-        
         <div className='box-count'>
             <div className='box-count-children'>
-            <button onClick={addOne}>+</button>
-            <p>{count}</p>
-            <button onClick={disOne}>-</button>
+                <button onClick={addOne} className="btn-add">+</button>
+                <p >{count}</p>
+                <button onClick={disOne} className="btn-dis">-</button>
             </div>
-            <button onClick={onAdd}>On Add</button>
         </div>
-        
+
     )
 
 }
@@ -61,4 +60,5 @@ const ItemCount = (props) => {//Funcion constructora
 /*#############################################
                  Exportacion
 ###############################################*/
+
 export default ItemCount

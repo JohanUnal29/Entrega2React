@@ -3,6 +3,8 @@
 ###############################################*/
 
 //Modulos
+import { useState } from 'react';
+import {useCartContext} from '../../context/CartContex';
 
 //Estilos
 import './ItemDetail.css'
@@ -10,7 +12,8 @@ import './ItemDetail.css'
 
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../itemCount/ItemCount';
-import ItemListContainer from '../itemListContainer/ItemListContainer';
+
+
 //Core
 
 /*#############################################
@@ -18,7 +21,37 @@ import ItemListContainer from '../itemListContainer/ItemListContainer';
 ###############################################*/
 const ItemDetail = (props) => {//Funcion constructora
 
-    const { title, category, description, price } = props.data
+    const {agregarAlCarrito} = useCartContext()
+
+const [cantidadDeProductosAComprar, setCantidadDeProductosAComprar] = useState(0)
+
+const {id, title, category, description, price } = props.data
+
+
+const funcionDelHijoDeGuardarCantidad = (cantidadX) => {
+    setCantidadDeProductosAComprar(cantidadX)
+}
+
+
+const onAdd = () => {
+
+if(cantidadDeProductosAComprar != 0) {
+    const producto = {
+        id:id,
+        title:title,
+        category:category,
+        price:price,
+        count:cantidadDeProductosAComprar + 1,
+        } 
+    
+       agregarAlCarrito(producto)
+}else{
+    alert("No te olvides de añadir productos")
+}
+
+}
+
+
 
     return (
 
@@ -32,11 +65,10 @@ const ItemDetail = (props) => {//Funcion constructora
                         {description}
                     </Card.Text>
 
-                    <ItemCount stock={10} />
+                    <ItemCount stock={10} guardarCantidadAComprar={funcionDelHijoDeGuardarCantidad}/>
+                    <button onClick={onAdd} className="btn-buy">On Add</button>
                 </Card.Body>
             </Card>
-            <h1>MAS PRODUCTOS</h1>
-            <ItemListContainer/>
         </article>
 
 

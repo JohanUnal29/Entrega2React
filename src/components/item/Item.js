@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 
 
 //Componentes
-import ItemCount from '../itemCount/ItemCount'
 
 //Core
 
@@ -31,8 +30,6 @@ const Item = (props) => {//Funcion constructora
                     {description}
                 </Card.Text>
                 <Link to={`/producto/${id}`}> Ver Detalle del Producto </Link>
-                <ItemCount stock={10} />
-                
             </Card.Body>
         </Card>
 
@@ -45,3 +42,4 @@ const Item = (props) => {//Funcion constructora
                  Exportacion
 ###############################################*/
 export default Item
+
